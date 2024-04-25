@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Inline styles -->
+    <link rel="icon" href="images/home/icon.svg">
+    <link rel="stylesheet" href="./css/style.min.css">
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- courusel -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Finsweet</title>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="header__navbar container df">
+            <div class="header__logo">
+                <a href="#"><img src="images/logo.svg" alt=""></a>
+                <ul class="header__list df">
+                    <li class="header__item">
+                        <a href="#">About Us</a>
+                    </li>
+                    <li class="header__item">
+                        <a href="#">Careers</a>
+                    </li>
+                    <li class="header__item">
+                        <a href="#">Services</a>
+                    </li>
+                    <li class="header__item">
+                        <a href="#">Blog</a>
+                    </li>
+                    <li class="header__item">
+                        <a href="#">Contact Us</a>
+                    </li>
+                    <li class="header__item--close">
+                        <span>X</span>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <button class="header__btn__sigin" id="loginBtn">Login</button>
+            </div>
+            <button class="header__hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+    <div class="back-top">
+        <a href="#hero">
+            <i class="fa-solid fa-arrow-up-long"></i>
+        </a>
+    </div>
+    
+    <main>
+        <div class="container">
+            <div class="wrapper">
+            </div>
+            <button class="header__btn__sigin btn__see-more">See More</button>
+        </div>
+    </main>
+    
+    <div id="loginModal">
+        <div class="login-container">
+            <form class="login-form">
+                <h2>Login</h2>
+                <p style="margin-top: 20px; margin-bottom: 20px;">Enter your username and password to login.</p>
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" placeholder="almamun_uxui@outlook.com" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="login">Login</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+<script src="./js/login.js"></script>
+<script src="./js/app.js"></script>
+<script src="./js/main.js"></script>
+
+</html>
