@@ -377,7 +377,7 @@ main {
 }
 
 #loginModal {
-  display: none; /* Modalni ilk ko'rinishida yashirin */
+  display: none;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -434,5 +434,65 @@ main {
 }
 
 button:hover {
+  background-color: #0056b3;
+}
+
+.main {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.password-change-container {
+  background-color: #fff;
+  padding: 30px 80px;
+  margin-top: 100px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.password-change-form {
+  max-width: 300px;
+  margin: auto;
+}
+
+.password-change-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.btnt {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btnt:hover {
   background-color: #0056b3;
 }

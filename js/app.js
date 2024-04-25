@@ -1,10 +1,10 @@
 const loading = document.querySelector(".loading")
-const API__URL = "https://dummyjson.com"
+const AP__URL = "https://dummyjson.com"
 const seeMore = document.querySelector(".btn__see-more")
 let limitCount = 4
 let count = 1
 
-createLoadingItem(limitCount)
+
 
 async function fetchData(url) {
     const data = await fetch(`${url}/products?limit=${limitCount * count}`, {
@@ -20,7 +20,7 @@ async function fetchData(url) {
         })
     }
 
-fetchData(API__URL)
+fetchData(AP__URL)
 
 
 
@@ -49,16 +49,3 @@ function createCard(figures){
         seeMore.innerHTML = "Loading..."
         seeMore.setAttribute("disabled", true)
     })
-
-    function createLoadingItem(count) {
-        let loadingItems = ""
-        for(let i =0; i < count; i++){
-            loadingItems += `
-            <div class="loading__item">
-                <div class="loading__image bg__animation"></div>
-                <div class="loading__title bg__animation"></div>
-                <div class="loading__title bg__animation"></div>
-            </div>
-            `
-        }
-}
