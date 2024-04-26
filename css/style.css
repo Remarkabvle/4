@@ -154,6 +154,29 @@ main {
   background: #FFFFFF;
 }
 
+.header__right {
+  display: flex;
+  gap: 10px;
+}
+
+.input-container {
+  position: relative;
+  width: 120px;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.input-container input:focus {
+  border-color: #007bff;
+}
+
 @media (max-width: 850px) {
   .header__list {
     position: fixed;
@@ -191,118 +214,133 @@ main {
     width: 80%;
   }
 }
-.footer {
-  background-color: #063255;
-  padding: 50px 0;
-}
-.footer__top {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-}
-.footer__info {
+.main-hero-content {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-}
-.footer__title {
-  color: #FFFFFF;
-  font-size: 30px;
-}
-.footer__socials {
-  display: flex;
-  gap: 20px;
-}
-.footer__lists {
-  display: flex;
-  gap: 100px;
-}
-.footer__list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.footer__t {
-  color: #FFFFFF;
-}
-.footer__item {
-  color: #FFFFFF;
-  font-weight: 500;
-  font-size: 18px;
-  transition: 0.4s;
-}
-.footer__item:hover {
-  color: #F58A07;
-}
-.footer__frame {
-  display: flex;
-  flex-direction: column;
-}
-.footer__frame h3 {
-  color: #FFFFFF;
-  padding-bottom: 20px;
-  font-size: 20px;
-}
-.footer__frame form {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  gap: 20px;
-}
-.footer__frame button {
-  background: rgba(245, 138, 7, 0.1019607843);
-  color: #F58A07;
-  font-size: 16px;
-  padding: 8px 18px;
-  border-radius: 20px;
-  border: 1px solid transparent;
-  transition: 0.4s;
-}
-.footer__frame button:hover {
-  color: #FFFFFF;
-  background: #F58A07;
-}
-.footer__input {
-  width: 100%;
-  padding: 10px;
-  outline: none;
-  border: none;
-  border-radius: 25px;
-  color: #5B5B5B;
-}
-.footer__frame__input {
-  width: 300px;
-}
-.footer__bottom {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 40px;
-}
-.footer__bottom p {
-  color: #FFFFFF;
+  gap: 15px;
 }
 
-@media screen and (max-width: 1200px) {
-  .footer__top {
-    display: flex;
-    flex-wrap: wrap;
-  }
+.main-hero-info {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
 }
-@media screen and (max-width: 650px) {
-  .footer__bottom {
+
+.main-hero-title {
+  max-width: 530px;
+  font-size: 76px;
+  font-weight: bold;
+  color: #333;
+}
+
+.main-hero.s-title {
+  color: #4CAF50;
+}
+
+.main-hero-text {
+  font-size: 16px;
+  color: #666;
+  max-width: 557px;
+}
+
+.main-hero-btn {
+  width: 140px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.main-hero-img img {
+  max-width: 100%;
+  height: auto;
+}
+
+.nmn {
+  display: flex;
+  gap: 20%;
+}
+
+@media (max-width: 768px) {
+  .main-hero-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .main-hero-title {
+    font-size: 48px;
+    max-width: 100%;
+  }
+  .main-hero-text {
+    max-width: 100%;
+  }
+  .nmn {
     flex-direction: column;
     gap: 10px;
   }
 }
-@media screen and (max-width: 400px) {
-  .footer__lists {
+.footer {
+  margin-top: 6%;
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer__list li {
+  margin-bottom: 10px;
+}
+
+.footer__list h3 {
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.footer__social {
+  text-align: center;
+}
+
+.footer__social-icons {
+  margin-bottom: 10px;
+}
+
+.footer__social-icon {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.footer__social-desc {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.footer__link {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer__link:hover {
+  color: rgb(70, 163, 88);
+}
+
+@media (max-width: 768px) {
+  .footer__list,
+  .footer__social {
     flex-direction: column;
+    align-items: center;
   }
-  .footer__title {
-    font-size: 25px;
-  }
-  .footer__frame__input {
-    width: 200px;
+  .footer__list li,
+  .footer__social-icons a {
+    margin-bottom: 10px;
   }
 }
 .card {
@@ -495,4 +533,17 @@ button:hover {
 
 .btnt:hover {
   background-color: #0056b3;
+}
+
+.form {
+  margin-bottom: 20px;
+}
+
+#form__select {
+  width: 13%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
 }
