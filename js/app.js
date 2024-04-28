@@ -31,7 +31,7 @@ const wrapper = document.querySelector(".wrapper");
 
 async function fetchProducts(api, option, searchValue) {
   let url = "";
-  if (option === "all") {
+  if (option === "all") { 
     if (searchValue) {
       url = `${api}/products/search/?q=${searchValue}`;
     } else {
