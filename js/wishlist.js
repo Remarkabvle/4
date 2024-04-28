@@ -9,7 +9,7 @@ function createCard(data){
             <img class="card__image" src=${product.images[0]} alt="">
             <h3>${product.title}</h3>
             <p>${product.price} USD</p>
-            <button>Buy now</button>
+            <button class="header__btn__sigin">Buy now</button>
             <i class="fa-regular fa-heart"></i>
         </div>
         `
