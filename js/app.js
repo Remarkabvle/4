@@ -1,114 +1,75 @@
-const API_URL = "https://dummyjson.com";
-const formSelect = document.querySelector("#form__select");
-const inputSearch = document.querySelector(".input__search");
+const wrapper =  document.querySelector(".wrapper")
+const API_URL = "https://dummyjson.com"
 const seeMore = document.querySelector(".btn__see-more")
-let limitCount = 4
+let limitCount = 6
 let count = 1
 
-async function fetchCategory(url) {
-  let data = await fetch(`${url}/products/categories`, {
-    method: "GET",
-  });
-  data
-    .json()
-    .then((res) => mapApi(res))
-    .catch((err) => console.log(err));
-}
-
-fetchCategory(API_URL);
-
-function mapApi(data) {
-  let selectOption = `<option class="form__option" value="all">all</option>`;
-  data.forEach((el) => {
-    selectOption += `
-             <option class="form__option" value="${el}">${el}</option>
-        `;
-  });
-
-  formSelect.innerHTML = selectOption;
-}
-const wrapper = document.querySelector(".wrapper");
-
-async function fetchProducts(api, option, searchValue) {
-  let url = "";
-  if (option === "all") { 
-    if (searchValue) {
-      url = `${api}/products/search/?q=${searchValue}`;
-    } else {
-      url = `${api}/products`;
-    }
-  } else {
-    url = `${api}/products/category/${option}`;
-  }
-  const data = await fetch(url, {
-    method: "GET",
-  });
-
-  data
-    .json()
-    .then((res) => createCard(res))
-    .catch((err) => console.log(err))
-    .finally(()=>{
-        seeMore.innerHTML = "See more"
-        seeMore.removeAttribute("disabled")
-    })
-    
-    
-}
-
-fetchProducts(API_URL, "all");
-
-function createCard(data) {
-  let cards = "";
-
-  data.products.forEach((element) => {
-    cards += `
-        <div class="card">
-        <img src=${element.images[0]} alt="">
-        <h2 class="card__brand">${element.brand}</h2>
-        <p class="card__price">Price:${element.price}$</p>
-        <p class="card__description">${element.description}</p>
-        <h3 class="card__rating">Rating:${element.rating}</h3>
-        </div> 
-        `;
-  });
-  wrapper.innerHTML = cards;
-}
-
-formSelect.addEventListener("change", (e) => {
-  let optionValue = e.target.value;
-  fetchProducts(API_URL, optionValue);
-});
-
-inputSearch.addEventListener("input", (e) => {
-  let value = e.target.value.trim();
-  if (value) {
-    fetchProducts(API_URL, "all", value);
-    select.value = "all";
-  }
-});
-
-async function fetchData(url) {
-    const data = await fetch(`${url}/products?limit=${limitCount * count}`, {
+async function fetchData(api){
+    const data = await fetch(`${api}/products?limit=${limitCount * count}`, {
         method: "GET"
     })
+
     data
         .json()
         .then(res => createCard(res))
         .catch(err => console.log(err))
         .finally(()=>{
-            seeMore.innerHTML = "See more"
-            seeMore.removeAttribute("disabled")
-        })
-    }
+          seeMore.innerHTML = "See more"
+          seeMore.removeAttribute("disabled")
+      })
+}
 
 fetchData(API_URL)
 
+function createCard(data){
+    let cards = ""
 
+    data.products.forEach((product)=> {
+        cards += `
+        <div class="card" data-id=${product.id}>
+            <img class="card__image" src=${product.images[0]} alt="">
+            <h3>${product.title}</h3>
+            <p>${product.price} USD</p>
+            <button>Buy now</button>
+            <i class="fa-regular fa-heart"></i>
+        </div>
+        `
+    })
+    wrapper.innerHTML = cards
+}
+
+const addToWishlist = async (id)=>{
+    count =  0
+    console.log("addToWishlist>>>>",id);
+    let data = await fetch(`${API_URL}/products/${id}`)
+    data
+        .json()
+        .then(product => {
+            let wishlist = JSON.parse(localStorage.getItem("wishlist")) || []
+            let index = wishlist.findIndex(el => el.id === product.id)
+            let updatedWishlist = []
+            if (index < 0) {
+                updatedWishlist = [...wishlist,product]
+            }else{
+                updatedWishlist = wishlist.filter(el => el.id !== product.id)
+            }
+            localStorage.setItem("wishlist",JSON.stringify(updatedWishlist))
+        })
+        .catch(err => console.log(err))
+}
+wrapper.addEventListener("click", (e)=>{
+    if(e.target.className === "card__image"){
+        let id = e.target.closest(".card").dataset.id
+        window.open(`./pages/product.html?productId=${id}`, "_self")
+    }else if(e.target.className.includes("fa-heart")){
+        let id = e.target.closest(".card").dataset.id
+        addToWishlist(id)   
+    }
+})
 
 seeMore.addEventListener("click", ()=>{ 
-    count++
-    fetchData(API__URL)
-    seeMore.innerHTML = "Loading..."
-    seeMore.setAttribute("disabled", true)
+  count++
+  fetchData(API__URL)
+  seeMore.innerHTML = "Loading..."
+  seeMore.setAttribute("disabled", true)
 })
